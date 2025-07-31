@@ -1,5 +1,5 @@
-streamlit==1.35.0
 langchain==0.1.14
 langchain-community==0.0.30
-langchain-openai==0.0.6
-chromadb==0.4.22
+transformers
+huggingface_hub
+streamlit
