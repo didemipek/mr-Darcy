@@ -1,7 +1,7 @@
 # Mr. Darcy GPT Chatbot using LangChain + OpenAI + Streamlit
 
 import streamlit as st
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_community.vectorstores import Chroma
