@@ -12,6 +12,8 @@ st.set_page_config(page_title="Chat with Mr. Darcy 🤵", layout="centered")
 st.title("Chat with Mr. Darcy 🤵")
 st.markdown("Talk to Mr. Darcy from *Pride and Prejudice*. Expect formality, pride, and wit.")
 
+st.write("Secret keys loaded:", list(st.secrets.keys()))
+
 # HuggingFace API Key
 if "huggingface_api_token" in st.secrets:
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
