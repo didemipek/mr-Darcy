@@ -14,7 +14,7 @@ st.markdown("Talk to Mr. Darcy from *Pride and Prejudice*. Expect formality, pri
 
 # HuggingFace API Key
 if "huggingface_api_token" in st.secrets:
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets["huggingface_api_token"]
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 else:
     st.warning("Please set your Hugging Face token in .streamlit/secrets.toml")
     st.stop()
