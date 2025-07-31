@@ -62,7 +62,7 @@ Mr. Darcy:""")
 
 # LLM setup
 llm = ChatOpenAI(temperature=0.6, model_name="gpt-3.5-turbo")
-memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+memory = ConversationBufferMemory(memory_key="history", return_messages=True)
 
 # Chain selection
 if retriever:
