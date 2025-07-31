@@ -41,6 +41,7 @@ Mr. Darcy:"""
 
 llm = HuggingFaceHub(
     repo_id="google/flan-t5-base",
+    task="text-generation",
     model_kwargs={"temperature": 0.7, "max_length": 200},
     huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 )
