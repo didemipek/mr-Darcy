@@ -1,15 +1,5 @@
-# Core App Framework
 streamlit==1.35.0
-
-# LangChain core (tested for compatibility)
 langchain==0.1.14
 langchain-community==0.0.24
-
-# Vector store for retrieval
-faiss-cpu==1.7.4
-
-# OpenAI LLMs
 openai==1.31.0
-
-# Embedding and document parsing
 tiktoken==0.7.0
