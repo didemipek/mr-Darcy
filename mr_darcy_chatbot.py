@@ -5,14 +5,13 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain.prompts import PromptTemplate
 from langchain_community.llms import HuggingFaceHub
-from langchain_community.llms import HuggingFaceEndpoint
+
 
 # Page setup
 
 
 st.set_page_config(page_title="Chat with Mr. Darcy 🤵", layout="centered")
 st.title("Chat with Mr. Darcy 🤵")
-st.write("Secret keys loaded:", list(st.secrets.keys()))
 st.markdown("Talk to Mr. Darcy from *Pride and Prejudice*. Expect formality, pride, and wit.")
 
 
@@ -39,11 +38,10 @@ Mr. Darcy:"""
 )
 
 # Load Zephyr 7B from HuggingFace Hub
-llm = HuggingFaceEndpoint(
-    endpoint_url="https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta",
-    huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"],
-    task="text-generation",
-    model_kwargs={"temperature": 0.6, "max_new_tokens": 512},
+llm = HuggingFaceHub(
+    repo_id="HuggingFaceH4/zephyr-7b-beta",
+    model_kwargs={"temperature": 0.7, "max_new_tokens": 512},
+    huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 )
 memory = ConversationBufferMemory(memory_key="history", return_messages=True)
 
