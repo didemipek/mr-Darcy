@@ -4,7 +4,7 @@ import streamlit as st
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
-from langchain_community.vectorstores import FAISS
+from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts import PromptTemplate
@@ -42,7 +42,7 @@ if uploaded_file:
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     docs = text_splitter.split_documents(documents)
 
-    vectorstore = FAISS.from_documents(docs, OpenAIEmbeddings())
+    vectorstore = Chroma.from_documents(docs, OpenAIEmbeddings())
     retriever = vectorstore.as_retriever()
 
 # Prompt template to act like Mr. Darcy
