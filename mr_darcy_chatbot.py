@@ -8,10 +8,11 @@ from langchain_community.llms import HuggingFaceHub
 from langchain_community.llms import HuggingFaceEndpoint
 
 # Page setup
-st.write("Secret keys loaded:", list(st.secrets.keys()))
+
 
 st.set_page_config(page_title="Chat with Mr. Darcy 🤵", layout="centered")
 st.title("Chat with Mr. Darcy 🤵")
+st.write("Secret keys loaded:", list(st.secrets.keys()))
 st.markdown("Talk to Mr. Darcy from *Pride and Prejudice*. Expect formality, pride, and wit.")
 
 
