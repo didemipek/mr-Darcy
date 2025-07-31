@@ -4,7 +4,7 @@ import os
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain.prompts import PromptTemplate
-from langchain_community.llms import HuggingFaceHub
+from langchain_openai import HuggingFaceEndpoint
 
 
 # Page setup
@@ -38,10 +38,14 @@ Mr. Darcy:"""
 )
 
 # Load Zephyr 7B from HuggingFace Hub
-llm = HuggingFaceHub(
-    repo_id="HuggingFaceH4/zephyr-7b-beta",
-    model_kwargs={"temperature": 0.7, "max_new_tokens": 512},
-    huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"]
+llm = HuggingFaceEndpoint(
+    endpoint_url="https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta",
+    huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"],
+    task="text-generation",  # Use 'text-generation' for Zephyr
+    model_kwargs={
+        "temperature": 0.7,
+        "max_new_tokens": 512
+    }
 )
 memory = ConversationBufferMemory(memory_key="history", return_messages=True)
 
