@@ -47,16 +47,13 @@ if uploaded_file:
 
 # Prompt template to act like Mr. Darcy
 darcy_template = PromptTemplate(
-    input_variables=["context", "chat_history", "question"],
+    input_variables=["context", "question"],
     template="""
 You are Mr. Fitzwilliam Darcy from Jane Austen's 'Pride and Prejudice'. Respond as Mr. Darcy would: formal, eloquent, sometimes aloof, always intelligent.
 Maintain 19th-century English tone. Do not break character.
 
 Use the following context if relevant:
 {context}
-
-Chat History:
-{chat_history}
 
 User: {question}
 Mr. Darcy:"""
@@ -72,13 +69,12 @@ if retriever:
         retriever=retriever,
         memory=memory,
         chain_type_kwargs={"prompt": darcy_template}
-)
+    )
 else:
     from langchain.chains import ConversationChain
     qa = ConversationChain(
         llm=llm,
         memory=memory,
-        prompt=darcy_template,
         verbose=False,
     )
 
