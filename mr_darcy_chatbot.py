@@ -4,7 +4,7 @@ import os
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain.prompts import PromptTemplate
-from langchain_openai import HuggingFaceEndpoint
+from langchain_community.llms import HuggingFaceEndpoint
 
 
 # Page setup
