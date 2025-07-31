@@ -52,7 +52,8 @@ qa = ConversationChain(
 user_input = st.chat_input("What would you like to ask Mr. Darcy?")
 if user_input:
     with st.spinner("Mr. Darcy is composing a response..."):
-        response = qa.run(user_input)
+       
+        response = qa.invoke(user_input)
     st.chat_message("user").write(user_input)
     st.chat_message("assistant").write(response)
 
