@@ -5,7 +5,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain.prompts import PromptTemplate
 from langchain_community.llms import HuggingFaceHub
-
+from langchain_community.llms import HuggingFaceEndpoint
 
 # Page setup
 st.set_page_config(page_title="Chat with Mr. Darcy 🤵", layout="centered")
