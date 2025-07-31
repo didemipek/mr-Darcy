@@ -38,14 +38,11 @@ Mr. Darcy:"""
 )
 
 # Load Zephyr 7B from HuggingFace Hub
-llm = HuggingFaceEndpoint(
-    endpoint_url="https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta",
-    huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"],
-    task="text-generation",  # Use 'text-generation' for Zephyr
-    model_kwargs={
-        "temperature": 0.7,
-        "max_new_tokens": 512
-    }
+
+llm = HuggingFaceHub(
+    repo_id="google/flan-t5-base",
+    model_kwargs={"temperature": 0.7, "max_length": 200},
+    huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 )
 memory = ConversationBufferMemory(memory_key="history", return_messages=True)
 
