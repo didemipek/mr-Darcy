@@ -66,12 +66,13 @@ llm = ChatOpenAI(temperature=0.6, model_name="gpt-3.5-turbo")
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 if retriever:
-    qa = ConversationalRetrievalChain.from_llm(
+    qa = ConversationalRetrievalChain.from_chain_type(
         llm=llm,
+        chain_type="stuff",
         retriever=retriever,
         memory=memory,
-        combine_docs_chain_kwargs={"prompt": darcy_template}
-    )
+        chain_type_kwargs={"prompt": darcy_template}
+)
 else:
     from langchain.chains import ConversationChain
     qa = ConversationChain(
