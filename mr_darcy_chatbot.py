@@ -40,8 +40,8 @@ Mr. Darcy:"""
 # Load Zephyr 7B from HuggingFace Hub
 
 llm = HuggingFaceHub(
-    repo_id="google/flan-t5-small",
-    task="text2text-generation",
+    repo_id="meta-llama/Llama-3.1-8B-Instruct",
+    task="text-generation",
     model_kwargs={"temperature": 0.7, "max_length": 200},
     huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 )
